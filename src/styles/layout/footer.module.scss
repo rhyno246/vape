@@ -1,0 +1,39 @@
+@import '../variable/variable';
+@import '../mixins/mixins';
+.footer{
+    padding: 70px 0;
+    text-align: center;
+    background: $bg-footer;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    position: relative;
+    @include Mobile{
+        padding: 50px 0;
+    }
+    .logoFooter{
+        display: flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    .copyRight{
+        color: $white;
+        @include Mobile{
+            max-width: 200px;
+            margin: 0 auto;
+            line-height: 26px;
+        }
+        span{
+            background: var(--Background-2, linear-gradient(252deg, #FF7822 9.19%, #FFE722 90.81%));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+    .lineLine{
+        position: absolute;
+        top: 0;
+        right: 50%;
+        transform: translate(50%, -50%);
+    }
+}

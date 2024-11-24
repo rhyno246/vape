@@ -1,0 +1,120 @@
+@import '../variable/variable';
+@import '../mixins/mixins';
+
+
+
+.menuPc{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include Tablet{
+        display: none;
+    }
+    .logo{
+        a{
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    .mainMenu{
+        display: flex;
+        align-items: center;
+        gap: 35px;
+        li{
+            a{
+                font-size: 18px;
+                font-weight: 500;
+                color: $white;
+                text-transform: uppercase;
+                &:hover{
+                    background: linear-gradient(252deg, #FF7822 9.19%, #FFE722 90.81%);
+                    -webkit-background-clip: text;
+                    -webkit-text-fill-color: transparent;
+                }
+            }
+        }
+    }
+    .groupUser{
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+}
+.menuMobile{
+    display: none;
+    @include Tablet{
+        display: block;
+        .wrapperMobile{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            .goupMenuMobile{
+                display: flex;
+                align-items: center;
+                gap: 30px;
+                .btnMobile{
+                    cursor: pointer;
+                    span{
+                        display: block;
+                        width: 25px;
+                        height: 2px;
+                        margin-bottom: 5px;
+                        background: #fff;
+                        &:last-child{
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+                .logo{
+                    @include Tablet{
+                        width: 80px;
+                    }
+                }
+            }
+            .groupUser{
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+        
+    }
+}
+.listMenu{
+    display: none;
+    background: #3F3F41;
+    backdrop-filter: blur(50px);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 55px;
+    padding: 15px 27px;
+    &.active{
+        @include Tablet{
+            display: block;
+        }
+    }
+    li{
+        margin-bottom: 10px;
+        &:last-child{
+            margin-bottom: 0;
+        }
+        a{
+            color: #fff;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+            display: block;
+            padding: 10px 0;
+            text-transform: uppercase;
+            &.acive{
+                background: linear-gradient(252deg, #FF7822 9.19%, #FFE722 90.81%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+    }
+}

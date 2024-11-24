@@ -1,115 +1,482 @@
-import Image from "next/image";
-import localFont from "next/font/local";
-
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import Layout from "@/layout/Layout";
+import styled from  '../styles/page/home.module.scss';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination , Autoplay , Navigation } from 'swiper/modules';
+import Link from "next/link";
+const banner = [
+  {
+    title : 'HQD NEO 15000',
+    url : './slide.png',
+    description : 'Must be 21+Use only in permitted areas'
+  },
+  {
+    title : 'HQD NEO 16000',
+    url : './slide.png',
+    description : 'Must be 21+Use only in permitted areas'
+  },
+  {
+    title : 'HQD NEO 17000',
+    url : './slide.png',
+    description : 'Must be 21+Use only in permitted areas'
+  }
+];
+const newArrival = [
+  {
+    url : './product.png',
+    title : 'XROS 3 NANO',
+    oldPrice : '$9.99',
+    newPrice : '$8.88'
+  },
+  {
+    url : './product.png',
+    title : 'XROS 3 NANO',
+    oldPrice : '$9.99',
+    newPrice : '$8.88'
+  },
+  {
+    url : './product.png',
+    title : 'XROS 3 NANO',
+    oldPrice : '$9.99',
+    newPrice : '$8.88'
+  },
+  {
+    url : './product.png',
+    title : 'XROS 3 NANO',
+    oldPrice : '$9.99',
+    newPrice : '$8.88'
+  },
+  {
+    url : './product.png',
+    title : 'XROS 3 NANO',
+    oldPrice : '$9.99',
+    newPrice : '$8.88'
+  },
+  {
+    url : './product.png',
+    title : 'XROS 3 NANO',
+    oldPrice : '$9.99',
+    newPrice : '$8.88'
+  }
+]
 
 export default function Home() {
-  return (
-    <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
-    >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/pages/index.js
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+  return ( 
+    <Layout title="Home Page">
+      <div className="page pageHome">
+        <div className="banner">
+          <Swiper pagination={{clickable : true}} 
+            modules={[Pagination , Autoplay ]} 
+            className={styled.homeBanner}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            speed={1200}
+            loop={true}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+            {
+              banner?.map((item, index) => (
+                <SwiperSlide key={index}>
+                  <img src={item.url} className ="img-res" alt={item.title} />
+                  <div className="groupHeading">
+                    <div className="container">
+                      <div className="title">
+                        {item.title}
+                      </div>
+                      <div className="description">
+                        {item.description}
+                      </div>
+                    </div>
+                  </div> 
+                  <div className="bannerViewMore">
+                    <Link href="/" className="btn btn-banner">
+                      Explore Products
+                      <img src="./clickbanner.svg" className="img-res"/>
+                    </Link>
+                  </div>
+                  
+                </SwiperSlide>
+              ))
+            }
+          </Swiper>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+
+
+        <div className={`${styled.aboutUs} block`}>
+          <div className="container">
+            <div className={styled.heading}>
+              <div className={styled.leftHeading}>
+                in 2024, SMTeam was founded on the belief that each action is an endeavor to achieve excellency.
+              </div>
+              <div className={styled.rightHeading}>
+                <img src="./about-us.svg" className="img-res"/>
+                <img src="./Lightpng.png" alt="line"  className={styled.lineLine}/>
+                <div className={styled.blur}></div>
+              </div>
+            </div>
+            <div className="view-more">
+              <Link href="/" className="btn btn-secondary">
+                View More
+                <img src="./clickbanner.svg" className="img-res" alt="view more"/>
+              </Link>
+            </div>
+            <div className={styled.groupBox}>
+              <div className={`${styled.imgBox} img-hover`}>
+                <img src="./about.png" alt="imgbox" className="img-res"/>
+              </div>
+              <div className={styled.boxText}>
+                Our unwavering commitment to surpassing the ordinary has propelled us to become the leading vaping brand globally in the future.
+                We embody a vision where our technology and values merge, crafting a better, cleaner, and more enjoyable life for all.
+              </div>
+            </div>
+          </div>
+        </div> 
+      </div>
+
+      <div className={`${styled.newArrival} block`}>
+          <div className="container">
+            <div className={styled.title}>
+              New Arrival
+              <div className="group-btn">
+                <div className="custom-prev">
+                  <img src="./btn-next.svg" alt="prev"/>
+                </div>
+                <div className="custom-next">
+                  <img src="./btn-next.svg" alt="next"/>
+                </div>
+              </div>
+            </div>
+            <div className={styled.productSwipper}>
+              <Swiper
+                modules={[Navigation]} 
+                navigation={{
+                  nextEl: ".custom-next",
+                  prevEl: ".custom-prev",
+                }}
+                slidesPerView={1}
+                spaceBetween={30}
+                className="newArrival"
+                breakpoints={{
+                  320: {
+                    slidesPerView: 2,
+                    spaceBetween : 20
+                  },
+
+                  768: {
+                    slidesPerView: 3,
+                  },
+                  1024: {
+                    slidesPerView: 4
+                  },
+                }}
+              >
+                {
+                  newArrival?.map((item,index) => (
+                    <SwiperSlide key={index}>
+                      <div className={styled.productItem}>
+                        <div className={`${styled.productImage} img-hover`}>
+                          <img src={item.url} alt="product" className="img-res"/>
+                          <span className={styled.statusSale}>-20%</span>
+                          <span className={styled.statusHot}>Hot</span>
+                          <span className={styled.statusNew}>New</span>
+                        </div>
+                        <div className={styled.productContent}>
+                          <div className={styled.productTitle}>XROS 3 NANO</div>
+                          <div className={styled.productPrice}>
+                              <span className={styled.oldPrice}>$9.99</span> - <span className={styled.newPrice}>$8.88</span>
+                          </div>
+                          <span className={styled.iconCart}>
+                            <img src="./cart.svg" alt="cart" className="img-res"/>
+                          </span>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))
+                }
+              </Swiper>
+            </div>
+          </div>
+      </div>
+
+
+      <div className={`${styled.Categories} block`}>
+        <div className="container">
+          <div className={styled.wrapperTitle}>
+            <div className={styled.groupText}>
+              Inspired by our users,
+              SMTeam’s innovation transcends the ordinary, merging your aspirations with our technological prowess to redefine the vaping experience.
+            </div>
+            <div className={styled.title}>
+              Featured Categories
+            </div>
+          </div>
+
+          <div className="wrapperContent">
+              <div className="item item-1">
+                <div className="item-image img-hover">
+                    <img src="./category1.png" alt="category-1" className="img-res"/>
+                    <div className="item-content">
+                      <div className="group-sale">
+                        <div className="sale-off">20% Off</div>
+                        <div className="name">Saltnic</div>
+                      </div>
+                      <Link href="/" className="btn btn-secondary">
+                        Shop Now
+                      </Link>
+                    </div>
+                </div>
+              </div>
+              <div className="item item-2">
+                <div className="item-image img-hover">
+                    <img src="./category2.png" alt="category-1" className="img-res"/>
+                    <div className="item-content">
+                      <div className="group-sale">
+                        <div className="sale-off">20% Off</div>
+                        <div className="name">Saltnic</div>
+                      </div>
+                      <Link href="/" className="btn btn-secondary">
+                        Shop Now
+                      </Link>
+                    </div>
+                </div>
+              </div>
+              <div className="item item-3">
+                <div className="item-image img-hover">
+                    <img src="./category3.png" alt="category-1" className="img-res"/>
+                    <div className="item-content">
+                      <div className="group-sale">
+                        <div className="sale-off">20% Off</div>
+                        <div className="name">Saltnic</div>
+                      </div>
+                      <Link href="/" className="btn btn-secondary">
+                        Shop Now
+                      </Link>
+                    </div>
+                </div>
+              </div>
+              <div className="item item-4">
+                <div className="item-image img-hover">
+                    <img src="./category4.png" alt="category-1" className="img-res"/>
+                    <div className="item-content">
+                      <div className="group-sale">
+                        <div className="sale-off">20% Off</div>
+                        <div className="name">Saltnic</div>
+                      </div>
+                      <Link href="/" className="btn btn-secondary">
+                        Shop Now
+                      </Link>
+                    </div>
+                </div>
+              </div>
+              <div className="item item-5">
+                <div className="item-image img-hover">
+                    <img src="./category5.png" alt="category-1" className="img-res"/>
+                    <div className="item-content">
+                      <div className="group-sale">
+                        <div className="sale-off">20% Off</div>
+                        <div className="name">Saltnic</div>
+                      </div>
+                      <Link href="/" className="btn btn-secondary">
+                        Shop Now
+                      </Link>
+                    </div>
+                </div>
+              </div>
+              <div className="item item-6">
+                <div className="item-image img-hover">
+                    <img src="./category6.png" alt="category-1" className="img-res"/>
+                    <div className="item-content">
+                      <div className="group-sale">
+                        <div className="sale-off">20% Off</div>
+                        <div className="name">Saltnic</div>
+                      </div>
+                      <Link href="/" className="btn btn-secondary">
+                        Shop Now
+                      </Link>
+                    </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div className={`${styled.favProduct} block`}>
+          <div className="container">
+            <div className={styled.headingFavProduct}>
+              <img src="./flavour-products.svg" className="img-res"/>
+              <img src="./Lightpng.png" alt="line"  className={styled.lineLine}/>
+              <div className={styled.blur}></div>
+            </div>
+
+            <div className="main-fav">
+            <div className="block-fav">
+                  <div className={styled.title}>
+                    Pod Mod
+                    <div className="group-btn">
+                      <div className="custom-prev">
+                        <img src="./btn-next.svg" alt="prev"/>
+                      </div>
+                      <div className="custom-next">
+                        <img src="./btn-next.svg" alt="next"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styled.productSwipper}>
+                    <Swiper
+                      modules={[Navigation]} 
+                      navigation={{
+                        nextEl: ".custom-next",
+                        prevEl: ".custom-prev",
+                      }}
+                      slidesPerView={1}
+                      spaceBetween={30}
+                      className="favProduct"
+                      breakpoints={{
+                        320: {
+                          slidesPerView: 2,
+                        },
+
+                        768: {
+                          slidesPerView: 3,
+                        },
+                        1024: {
+                          slidesPerView: 4
+                        },
+                      }}
+                    >
+                      {
+                        newArrival?.map((item,index) => (
+                          <SwiperSlide key={index}>
+                            <div className={styled.productItem}>
+                              <div className={`${styled.productImage} img-hover`}>
+                                <img src={item.url} alt="product" className="img-res"/>
+                                <span className={styled.statusSale}>-20%</span>
+                                <span className={styled.statusHot}>Hot</span>
+                                <span className={styled.statusNew}>New</span>
+                              </div>
+                              <div className={styled.productContent}>
+                                <div className={styled.productTitle}>XROS 3 NANO</div>
+                                <div className={styled.productPrice}>
+                                    <span className={styled.oldPrice}>$9.99</span> - <span className={styled.newPrice}>$8.88</span>
+                                </div>
+                                <span className={styled.iconCart}>
+                                  <img src="./cart.svg" alt="cart" className="img-res"/>
+                                </span>
+                              </div>
+                            </div>
+                          </SwiperSlide>
+                        ))
+                      }
+                    </Swiper>
+                  </div>
+                </div>
+
+
+                <div className="block-fav">
+                  <div className={styled.title}>
+                    Pod Mod
+                    <div className="group-btn">
+                      <div className="custom-prev">
+                        <img src="./btn-next.svg" alt="prev"/>
+                      </div>
+                      <div className="custom-next">
+                        <img src="./btn-next.svg" alt="next"/>
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styled.productSwipper}>
+                    <Swiper
+                      modules={[Navigation]} 
+                      navigation={{
+                        nextEl: ".custom-next",
+                        prevEl: ".custom-prev",
+                      }}
+                      slidesPerView={1}
+                      spaceBetween={30}
+                      className="favProduct"
+                      breakpoints={{
+                        320: {
+                          slidesPerView: 2,
+                        },
+
+                        768: {
+                          slidesPerView: 3,
+                        },
+                        1024: {
+                          slidesPerView: 4
+                        },
+                      }}
+                    >
+                      {
+                        newArrival?.map((item,index) => (
+                          <SwiperSlide key={index}>
+                            <div className={styled.productItem}>
+                              <div className={`${styled.productImage} img-hover`}>
+                                <img src={item.url} alt="product" className="img-res"/>
+                                <span className={styled.statusSale}>-20%</span>
+                                <span className={styled.statusHot}>Hot</span>
+                                <span className={styled.statusNew}>New</span>
+                              </div>
+                              <div className={styled.productContent}>
+                                <div className={styled.productTitle}>XROS 3 NANO</div>
+                                <div className={styled.productPrice}>
+                                    <span className={styled.oldPrice}>$9.99</span> - <span className={styled.newPrice}>$8.88</span>
+                                </div>
+                                <span className={styled.iconCart}>
+                                  <img src="./cart.svg" alt="cart" className="img-res"/>
+                                </span>
+                              </div>
+                            </div>
+                          </SwiperSlide>
+                        ))
+                      }
+                    </Swiper>
+                  </div>
+                </div>
+            </div>
+          </div>
+      </div>
+
+      <div className="contactUs block">
+          <div className="container">
+            <div className="main-contact">
+              <div className="items">
+                <img src="./spchat1.png" alt="telegram" className="img-res"/>
+                <div className="content">
+                  <div className="live-sp">Telegram Live Support</div>
+                  <div className="info">@smteam</div>
+                  <div className="banner-contatus">
+                    <Link href="/" className="btn btn-contact">
+                      Click To Chat
+                      <img src="./clickbanner.svg" className="img-res"/>
+                    </Link>
+                  </div>
+                </div>
+                <div className="social">
+                  <img src="./telegram.png" className="img-res"/>
+                </div>
+              </div>
+              <div className="items">
+                <img src="./spchat2.png" alt="telegram" className="img-res"/>
+                <div className="content">
+                  <div className="live-sp">Signal Live Support</div>
+                  <div className="info">@smteam</div>
+                  <div className="banner-contatus">
+                    <Link href="/" className="btn btn-contact">
+                      Click To Chat
+                      <img src="./clickbanner.svg" className="img-res"/>
+                    </Link>
+                  </div>
+                </div>
+                <div className="social">
+                  <img src="./signal.png" className="img-res"/>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+    </Layout>
   );
 }

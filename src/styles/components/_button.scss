@@ -1,0 +1,70 @@
+@import '../variable/variable';
+.btn{
+    cursor: pointer;
+    &-icon{
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 30px;
+        box-shadow: 0px 1px 3px 0px rgba(246, 243, 232, 0.75) inset;
+        background: $btn-icon-color;
+    }
+    &-outline {
+        white-space: nowrap;
+        padding: 20px 35px;
+        background: rgba(246, 243, 232, 0.15);
+        box-shadow: 0px 1px 3px 0px rgba(246, 243, 232, 0.75) inset;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        @include Mobile{
+            padding: 10px 20px;
+        }
+        img{
+            width: 18px;
+            height: 18px;
+        }
+    }
+    &-secondary{
+        white-space: nowrap;
+        padding: 20px 35px;
+        background: rgba(246, 243, 232, 0.15);
+        box-shadow: 0px 1px 3px 0px rgba(246, 243, 232, 0.75) inset;
+        color: $white;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 30px;
+        @include Mobile{
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        img{
+            width: 18px;
+            height: 18px;
+        }
+    }
+    &-banner{
+        background: $btn-icon-color;
+        color: $white;
+        padding: 20px 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        border-radius: 50px;
+        font-weight: 500;
+        @include Mobile{
+            padding: 10px 20px;
+        }
+        img{
+            width: 18px;
+            height: 18px;
+        }
+    }
+}

@@ -1,0 +1,52 @@
+.search-box{
+    position: relative;
+    @include Tablet {
+        margin-bottom: 10px;
+    }
+    .formControl{
+        position: absolute;
+        right: 0;
+        top: 0;
+        @include Tablet{
+            width: 100%;
+        }
+    }
+}
+.customInputSearch{
+    min-height: 35px;
+    padding: 0 10px;
+    border-radius: 3px;
+    background: linear-gradient(0deg, rgba(246, 243, 232, 0.15) 0%, rgba(246, 243, 232, 0.15) 100%), rgba(246, 243, 232, 0.15);
+    backdrop-filter: blur(50px);
+    display: flex;
+    align-items: center;
+    position: relative;
+    min-width: 200px;
+    @include Tablet{
+        min-height: 50px;
+    }
+    input{
+        background: transparent;
+        color: #C0C0C0;
+        max-width: 140px;
+        font-size: 14px;
+        &::placeholder{
+            color: #C0C0C0;
+        }
+    }
+    button{
+        border-radius: 3px;
+        background: linear-gradient(0deg, rgba(246, 243, 232, 0.15) 0%, rgba(246, 243, 232, 0.15) 100%), rgba(246, 243, 232, 0.15);
+        backdrop-filter: blur(50px);
+        height: 100%;
+        width: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        @include Tablet{
+            width: 50px;
+        }
+    }
+}

@@ -1,0 +1,26 @@
+.statusSale,.statusHot,.statusNew{
+    border-radius: 3px;
+    padding: 3px 5px;
+    background: linear-gradient(0deg, rgba(246, 243, 232, 0.15) 0%, rgba(246, 243, 232, 0.15), rgba(16, 16, 16, 0.15));
+    box-shadow: 0px 0.75px 2.25px 0px #F6F3E8 inset;
+    color: #F6F3E8;
+    font-size: 10.5px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 15px;
+    text-align: center;
+}
+.statusHot,.statusNew{
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    font-size: 9px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 15px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

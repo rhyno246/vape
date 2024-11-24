@@ -1,0 +1,182 @@
+@import '../variable/variable';
+@import '../mixins/mixins';
+@import '../components/title';
+@import '../components/card';
+.homeBanner{
+    height: 800px;
+    @include Mobile{
+        height: 500px;
+    }
+}
+
+.aboutUs{
+    background: rgba(246, 243, 232, 0.05);
+    .heading{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        color: #F6F3E8;
+        font-family: $font-primary;
+        @include Tablet{
+            gap: 20px;
+        }
+        @include Mobile{
+            flex-flow: column-reverse;
+            align-items: center;
+            gap: 40px;
+        }
+        .leftHeading {
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 30px;
+            text-transform: uppercase;
+            max-width: 360px;
+        }
+        .rightHeading{
+            position: relative;
+            img{
+                @include Mobile{
+                    width: 180px;
+                }
+            }
+            .blur{
+                border-radius: 300px;
+                background: rgba(246, 243, 232, 0.35);
+                filter: blur(150px);
+                display: block;
+                width: 500px;
+                height: 200px;
+                position: absolute;
+                top: 50%;
+                right: 50%;
+                transform: translate(50%,-50%);
+                @include Tablet{
+                    display: none;
+                }
+            }
+            .lineLine{
+                position: absolute;
+                bottom: -35px;
+                @include Mobile{
+                    bottom: -15px;
+                }
+            }
+        }
+    }
+    .groupBox{
+        margin-top: 100px;
+        display: flex;
+        justify-content: flex-end;
+        gap: 140px;
+        @include Tablet{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            gap: 50px;
+        }
+        @include Mobile{
+            display: block;
+            margin-top: 20px;
+        }
+        .imgBox{
+            max-width: 400px;
+            min-height: 225px;
+            max-height: 225px;
+            width: 100%;
+            img{
+                max-height: 225px;
+            }
+        }
+        .boxText{
+            font-size: 20px;
+            font-weight: 400;
+            line-height: 30px;
+            max-width: 460px;
+            color: #F6F3E8;
+            font-family: $font-primary;
+            margin-top: -60px;
+            @include Tablet{
+                margin-top: 0;
+            }
+            @include Mobile{
+                display: block;
+                margin-top: 20px;
+            }
+        }
+    }
+}
+
+.newArrival{
+    .productSwipper{
+        margin-top: 70px;
+    }
+}
+
+.Categories{
+    background: rgba(246, 243, 232, 0.05);
+    .wrapperTitle{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        @include Tablet{
+            gap: 20px;
+        }
+        @include Mobile{
+            display: block;
+        }
+        .title{
+            max-width: 367px;
+            width: 100%;
+            @include Mobile{
+                max-width: 160px;
+                margin: 0 auto;
+                text-align: center;
+            }
+        }
+        .groupText{
+            color : #fff;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 26px;
+            max-width: 460px;
+            width: 100%;
+            @include Mobile{
+                display: none;
+            }
+        }
+    }
+}
+
+.favProduct{
+    .headingFavProduct{
+        position: relative;
+        .blur{
+            border-radius: 300px;
+            background: rgba(246, 243, 232, 0.35);
+            filter: blur(150px);
+            display: block;
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            transform: translate(50%,-50%);
+        }
+        .lineLine{
+            position: absolute;
+            bottom: -35px;
+            right: 0;
+            width: 70%;
+        }
+    }
+    .title{
+        margin-bottom: 70px;
+        @include Mobile{
+            margin-bottom: 30px;
+        }
+    }
+}
+
+

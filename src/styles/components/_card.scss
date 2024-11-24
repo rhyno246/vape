@@ -1,0 +1,111 @@
+@import './status';
+.productItem{
+    box-shadow: 0px 1px 1px 0px rgba(246, 243, 232, 0.75) inset;
+    background: linear-gradient(rgba(246, 243, 232, 0.05) 0%, rgba(246, 243, 232, 0.05) 100%), #101010;
+    border-radius: 10px;
+    width: 100%;
+    overflow: hidden;
+    .productImage{
+        height: 260px;
+        padding: 15px;
+        position: relative;
+        border-radius: 0;
+        @include Mobile{
+            height: 150px;
+            padding: 8px;
+        }
+        img{
+            text-align: center;
+            margin: 0 auto;
+        }
+        .statusSale{
+            position: absolute;
+            top : 15px;
+            left: 15px;
+            @include Mobile{
+                top : 8px;
+                left: 8px;
+                font-size: 8px;
+            }
+        }
+        .statusHot{
+            position: absolute;
+            top : 15px;
+            right: 15px;
+            @include Mobile{
+                top : 8px;
+                right: 8px;
+                font-size: 7px;
+            }
+        }
+        .statusNew{
+            position: absolute;
+            top : 55px;
+            right: 15px;
+            @include Mobile{
+                top : 45px;
+                right: 8px;
+                font-size: 7px;
+            }
+        }
+    }
+    .productContent{
+        padding: 15px;
+        text-align: center;
+        background: rgba(246, 243, 232, 0.15);
+        backdrop-filter: blur(108.33332824707031px);
+        position: relative;
+        .productTitle{
+            color: #F6F3E8;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 28px;
+            text-transform: capitalize;
+            margin-top: 15px;
+            @include Mobile{
+                font-size: 12px;
+            }
+            
+        }
+        .productPrice{
+            color: #F6F3E8;
+            .oldPrice,.newPrice{
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 20px;
+            }
+            .oldPrice{
+                color: #C0C0C0;
+                text-decoration: line-through;
+                @include Mobile{
+                    font-size: 10px;
+                }
+            }
+            .newPrice{
+                color: #F6F3E8;
+                @include Mobile{
+                    font-size: 10px;
+                }
+            }
+        }
+        .iconCart{
+            position: absolute;
+            width: 45px;
+            height: 45px;
+            border-radius: 22.5px;
+            background: linear-gradient(0deg, rgba(246, 243, 232, 0.05) 0%, rgba(246, 243, 232, 0.05) 100%), rgba(16, 16, 16, 0.15);
+            backdrop-filter: blur(9.64285659790039px);
+            top: 0;
+            right: 50%;
+            transform: translate(50%,-50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            img{
+                height: auto;
+                width: auto;
+            }
+        }
+    }
+}
