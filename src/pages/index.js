@@ -73,6 +73,11 @@ export default function Home() {
             }}
             speed={1200}
             loop={true}
+            breakpoints={{
+              320: {
+               pagination : false
+              }
+            }}
           >
             {
               banner?.map((item, index) => (
