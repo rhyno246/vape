@@ -1,0 +1,126 @@
+@import '../variable/variable';
+@import '../mixins/mixins';
+
+.rcdQrcode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: #101010;
+  height: 100vh;
+  width: 100%;
+  padding: 0 15px;
+  .boxRcd{
+    background: rgba(246, 243, 232, 0.05);
+    max-width: 550px;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
+    .logoRcd{
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 25px;
+      img{
+        display: block;
+        margin: 0 auto;
+      }
+    }
+    .paymentId{
+      color: #fff;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .groupQr{
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      gap: 20px;
+      background: #101010;
+      padding: 15px;
+      border-radius: 5px;
+      @include Mobile{
+        flex-direction: column;
+      }
+      .qrCode{
+        max-width: 150px;
+        width: 100%;
+        background: #fff;
+        padding: 3px;
+        border-radius: 3px;
+        position: relative;
+        img{
+          position: absolute;
+          top: 50%;
+          right: 50%;
+          transform: translate(50%, -50%);
+          background: #fffbf2;
+          border-radius: 50px;
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .mainQr{
+        max-width: 300px;
+        width: 100%;
+        .amount{
+          color: #fff;
+          font-size: 14px;
+          margin-bottom: 15px;
+          cursor: pointer;
+          > div{
+            font-family: Anton, serif;
+            background: linear-gradient(252deg, #ff7822 9.19%, #ffe722 90.81%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          p{
+            font-size: 12px;
+            color: #ddd;
+            margin-bottom: 3px;
+          }
+        }
+        .address{
+          color: #fff;
+          font-size: 14px;
+          cursor: pointer;
+          margin-bottom: 10px;
+          > div{
+            font-family: Anton, serif;
+            background: linear-gradient(252deg, #ff7822 9.19%, #ffe722 90.81%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+          }
+          p{
+            font-size: 12px;
+            color: #ddd;
+            margin-bottom: 3px;
+            color: #fff;
+          }
+        }
+        .time{
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          img{
+            width: 15px;
+          }
+          p{
+            font-size: 13px;
+            color: #ddd;
+            font-family: Anton, serif;
+            line-height: normal;
+          }
+        }
+      }
+    }
+  }
+  .provideBy{
+    margin-top: 20px;
+    color: #fff;
+    font-size: 16px;
+  }
+}

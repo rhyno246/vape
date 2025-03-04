@@ -220,3 +220,18 @@ html {
         padding: 0 10px;
     }
 }
+
+.nav-tabs{
+    color: #fff;
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    height: 50px;
+    li{
+        white-space: nowrap;
+        &.active{
+            background-color: #ddd;
+        }
+    }
+}
